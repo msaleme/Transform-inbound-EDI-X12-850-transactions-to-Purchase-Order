@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tls="http://www.mulesoft.org/schema/mule/tls" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:x12="http://www.mulesoft.org/schema/mule/x12" xmlns:anypoint-mq="http://www.mulesoft.org/schema/mule/anypoint-mq" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/anypoint-mq http://www.mulesoft.org/schema/mule/anypoint-mq/current/mule-anypoint-mq.xsd
+http://www.mulesoft.org/schema/mule/x12 http://www.mulesoft.org/schema/mule/x12/current/mule-x12.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd">
+	<flow name="b2b-training-mythical-inbound-poFlow" doc:id="128a4eae-06e9-42d3-a869-1410ec1b20bd" >
+		<anypoint-mq:subscriber doc:name="Subscriber" doc:id="3c195554-f223-42f3-ad78-290a34a2fe48" config-ref="Anypoint_MQ_Config" destination="${anypoint-mq.edi-in-q}"/>
+		<x12:read doc:name="4010_850" doc:id="90eefef8-72bd-43d5-ad07-8a4dca2af15c" config-ref="X12_EDI_Read_4010_850"/>
+		<ee:transform doc:name="INB_PO_NTO_4010_850_to_Enterprise_PO_JSON" doc:id="cbacc1e9-84b1-4ba7-baf7-4486e4bfe722" >
+			<ee:message >
+				<ee:set-payload resource="INB_PO_NTO_4010_850_to_Enterprise_PO_JSON.dwl" />
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="adf62a72-51ea-4d51-a190-0caaea72d0bd" message="#[payload]"/>
+		<http:request method="POST" doc:name="Enterprise Inbound Purchase Order Process API" doc:id="4c4660bb-6878-4728-817f-162a901c00a5" config-ref="HTTP_Request_configuration" path="/inbound-po"/>
+	</flow>
+</mule>

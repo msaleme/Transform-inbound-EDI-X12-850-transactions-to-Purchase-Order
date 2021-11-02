@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:anypoint-mq="http://www.mulesoft.org/schema/mule/anypoint-mq" xmlns:tls="http://www.mulesoft.org/schema/mule/tls"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd
+http://www.mulesoft.org/schema/mule/anypoint-mq http://www.mulesoft.org/schema/mule/anypoint-mq/current/mule-anypoint-mq.xsd">
+	
+	<flow name="mythical-inbound-po-process-apiFlow" doc:id="c18b8763-c474-4dcd-9ba9-5e2d847cce31" >
+		<http:listener doc:name="Listener" doc:id="87648453-2b43-4466-b7aa-4b6288f7499d" config-ref="HTTP_Listener_config" path="/inbound-po"/>
+		<logger level="INFO" doc:name="Logger" doc:id="9e6bc325-4a47-4b3c-9485-35eb7d23a891" message="Publishing Purchase Order into Anypoint MQ"/>
+		<anypoint-mq:publish doc:name="Publish" doc:id="5b6167c9-584a-470c-86df-f8608f579456" config-ref="Anypoint_MQ_Config" destination="ent-inbound-po.q"/>
+	</flow>
+</mule>

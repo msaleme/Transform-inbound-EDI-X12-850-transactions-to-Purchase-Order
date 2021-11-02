@@ -1,0 +1,30 @@
+ISA*00*          *00*          *ZZ*NTORETAIL      *01*MYTHICAL       *200915*0103*U*00401*000000018*0*P*>~
+GS*PO*NTORETAIL*MYTHICAL*20200915*0103*18*X*004010~
+ST*850*0001~
+BEG*00*NE*PO-DEMO-20200912-002**20191018~
+REF*VR*7429271~
+PER*BD*Tim Brown*EM*tbrown@nto.com~
+PO1*1*20**34.45****MG*324791~
+PID*F****8.5" x 11" Copy Paper, 20 lbs, 92 Brightness, 5000/Carton (324791)~
+N1*ST*Salesforce West*92*338~
+N3*50 Fremont St*Suite 1456~
+N4*San Francisco*CA*94105*US~
+PO1*2*80**1.95****MG*2072174~
+PID*F****Hype Tank Highlighters, Chisel, Yellow, Dozen (29203)~
+N1*ST*Salesforce East*92*367~
+N3*350 Mission St*Floor 5~
+N4*San Francisco*CA*94105*US~
+PO1*3*65**5.08****MG*163865~
+PID*F****Notepads, 8.5" x 11.75", Wide Ruled, White, 50 Sheets/Pad, 12 Pads/Pack (51295/2~
+N1*ST*Salesforce Tower*92*587~
+N3*415 Mission St*Floor 3~
+N4*San Francisco*CA*94105*US~
+PO1*4*30*PH*11.77****MG*467951~
+PID*F****Lightweight Moving & Storage Packing Tape, 1.88"W x 54.6 Yards, Clear, 6 Rolls (~
+N1*ST*Tableau Palo Alto*92*1564~
+N3*260 California Ave*Ste 300~
+N4*Palo Alto*CA*94306*US~
+CTT*4~
+SE*26*0001~
+GE*1*18~
+IEA*1*000000018~
